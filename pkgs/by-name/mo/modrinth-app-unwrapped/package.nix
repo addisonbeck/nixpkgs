@@ -165,7 +165,7 @@ rustPlatform.buildRustPackage {
     maintainers = with lib.maintainers; [ getchoo ];
     platforms = lib.platforms.linux ++ lib.platforms.darwin;
     # This builds on architectures like aarch64, but the launcher itself does not support them yet.
-    # Darwin does not experience this issue.
+    # Darwin is the only exception
     # See https://github.com/modrinth/code/issues/776#issuecomment-1742495678
     broken = !stdenv.hostPlatform.isx86_64 && stdenv.isLinux;
   };
